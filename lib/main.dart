@@ -219,7 +219,7 @@ class _MyHomePageState extends State<MyHomePage> {
   // Get signed in user info
   Future<void> _fetchUserInfo() async {
     _setLoading(true);
-    final http.Response httpResponse = await http.get(Uri.parse('https://starters.plusauth.com/oidc/userinfo'),
+    final http.Response httpResponse = await http.get(Uri.parse('https://<YOUR_TENANT>.plusauth.com/oidc/userinfo'),
         headers: <String, String>{'Authorization': 'Bearer $_accessToken'});
     final body = json.decode(httpResponse.body);
 

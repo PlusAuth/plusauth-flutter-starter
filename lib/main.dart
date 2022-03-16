@@ -45,8 +45,9 @@ class _MyHomePageState extends State<MyHomePage> {
   final FlutterSecureStorage _secureStorage = const FlutterSecureStorage();
 
   final String _clientId = '<YOUR_CLIENT_ID>';
-  final String _redirectUrl = 'com.plusauth.flutterexample:/oauthredirect/login';
   final String _issuer = 'https://<YOUR_TENANT>.plusauth.com';
+  final String _userInfoUrl = 'https://<YOUR_TENANT>.plusauth.com/oidc/userinfo';
+  final String _redirectUrl = 'com.plusauth.flutterexample:/oauthredirect/login';
   final String _postLogoutRedirectUrl = 'com.plusauth.flutterexample:/';
   final List<String> _scopes = <String>['openid', 'profile', 'email', 'offline_access'];
 
@@ -219,7 +220,7 @@ class _MyHomePageState extends State<MyHomePage> {
   // Get signed in user info
   Future<void> _fetchUserInfo() async {
     _setLoading(true);
-    final http.Response httpResponse = await http.get(Uri.parse('https://<YOUR_TENANT>.plusauth.com/oidc/userinfo'),
+    final http.Response httpResponse = await http.get(Uri.parse(_userInfoUrl  ),
         headers: <String, String>{'Authorization': 'Bearer $_accessToken'});
     final body = json.decode(httpResponse.body);
 

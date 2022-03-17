@@ -66,7 +66,7 @@ pod install
 
 Edit the `main.dart` class under the `lib` folder, change `_clientId` and `_issuer` fields with your Client Id and PlusAuth domain.
 
-That's all! Hit the 'Run' button in Android Studio to start the app.
+That's all! Hit the 'Run' button in **Android Studio** or **XCode** to start the app.
 
 ## License
 
